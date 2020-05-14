@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="root">
+  <header class="header">
+    <h1 class="header__logo">Логотип</h1>
+    <hr class="header__line">
+  </header>
+  <main class="contain">
+    <section class="profile">
+      <div class="profile__data">
+        <img src="images/avatar.jpg" class="profile__avatar" alt="аватар пользователя">
+        <ul class="profile__info">
+          <li class="profile__name">Жак-Ив Кусто</li>
+          <li class="profile__descr">Исследователь океана</li>
+        </ul>
+        <button class="profile__editbutton"></button>
+      </div>
+      <button class="profile__addbutton"></button>
+    </section>
+    <section class="elements">
+      <ul class="elements__item">
+        <li class="elements__item-fragment elements__item-fragment_img"><img src="./images/sydney.jpg" class="elements__image"></li>
+        <li class="elements__item-fragment elements__item-fragment_textfield">
+          <h2 class="elements__title">Сидней</h2>
+          <div class="elements__checkbox"></div>
+        </li>
+      </ul>
+      <ul class="elements__item">
+        <li class="elements__item-fragment elements__item-fragment_img"><img src="./images/norway.jpg" class="elements__image"></li>
+        <li class="elements__item-fragment elements__item-fragment_textfield">
+          <h2 class="elements__title">Норвегия</h2>
+          <div class="elements__checkbox"></div>
+        </li>
+      </ul>
+      <ul class="elements__item">
+        <li class="elements__item-fragment elements__item-fragment_img"><img src="./images/hanoi.jpg" class="elements__image"></li>
+        <li class="elements__item-fragment elements__item-fragment_textfield">
+          <h2 class="elements__title">Ханой</h2>
+          <div class="elements__checkbox"></div>
+        </li>
+      </ul>
+      <ul class="elements__item">
+        <li class="elements__item-fragment elements__item-fragment_img"><img src="./images/brooklyn.jpg" class="elements__image"></li>
+        <li class="elements__item-fragment elements__item-fragment_textfield">
+          <h2 class="elements__title">Бруклин</h2>
+          <div class="elements__checkbox"></div>
+        </li>
+      </ul>
+      <ul class="elements__item">
+        <li class="elements__item-fragment elements__item-fragment_img"><img src="./images/edinburgh.jpg" class="elements__image"></li>
+        <li class="elements__item-fragment elements__item-fragment_textfield">
+          <h2 class="elements__title">Эдинбург</h2>
+          <div class="elements__checkbox"></div>
+        </li>
+      </ul>
+      <ul class="elements__item">
+        <li class="elements__item-fragment elements__item-fragment_img"><img src="./images/prague.jpg" class="elements__image"></li>
+        <li class="elements__item-fragment elements__item-fragment_textfield">
+          <h2 class="elements__title">Прага</h2>
+          <div class="elements__checkbox"></div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__text">© 2020 Mesto Russia</p>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
