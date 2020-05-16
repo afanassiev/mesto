@@ -9,6 +9,6 @@
 * Файловая структура сайта написана с использованием методологии [БЭМ (схема nested)](_https://ru.bem.info/methodology/filestructure/_).
 * JavaScript.
 
-Проект доступен на [GitHubPages по ссылке](https://afanassiev.github.io/russian-travel/).
+Проект доступен на [GitHubPages по ссылке](https://afanassiev.github.io/mesto/).
 
 (c) Антон Афанасьев
