@@ -1,0 +1,15 @@
+@import url(__image/item__image.css);
+@import url(__title/item__title.css);
+@import url(__checkbox/item__checkbox.css);
+@import url(__fragment/item__fragment.css);
+
+.item {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 282px;
+  object-fit: cover;
+  box-sizing: border-box;
+}

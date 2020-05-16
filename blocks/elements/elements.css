@@ -1,9 +1,3 @@
-@import url(./__item/elements__item.css);
-@import url(./__image/elements__image.css);
-@import url(./__title/elements__title.css);
-@import url(./__item-fragment/elements__item-fragment.css);
-@import url(./__checkbox/elements__checkbox.css);
-
 .elements {
   margin: 47.25px auto 0 auto;
   max-width: 882px;

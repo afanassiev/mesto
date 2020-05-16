@@ -1,20 +1,23 @@
-.popup__descr {
+@import url(_name/popup__input_name.css);
+@import url(_descr/popup__input_descr.css);
+
+.popup__input {
   width: 358px;
   min-height: 27px;
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  margin-bottom: 48px;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 530px) {
-  .popup__descr {
+  .popup__name {
     width: 258px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .popup__descr {
+  .popup__name {
     width: 158px;
   }
 }
