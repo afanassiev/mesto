@@ -6,6 +6,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: 35px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.profile__addbutton:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
