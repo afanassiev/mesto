@@ -1,3 +1,4 @@
 .item__fragment_img {
-  max-height: 282px;
+  /*max-width: 282px;*/
+  height: 282px;
 }

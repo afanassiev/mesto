@@ -1,3 +1,6 @@
+@import url(_cards/popup__close-button_cards.css);
+@import url(_image/popup__close-button_image.css);
+
 .popup__close-button {
   width: 60px;
   height: 60px;

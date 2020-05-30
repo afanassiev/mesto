@@ -25,57 +25,14 @@
       </div>
       <button class="profile__addbutton" type="button"></button>
     </section>
-    <section class="elements">
-      <article class="item">
-        <div class="item__fragment item__fragment_img"><img src="./images/sydney.jpg" class="item__image" alt="Фотография Сиднея"></div>
-        <div class="item__fragment item__fragment_textfield">
-          <h2 class="item__title">Сидней</h2>
-          <button class="item__checkbox" type="button"></button>
-        </div>
-      </article>
-      <article class="item">
-        <div class="item__fragment item__fragment_img"><img src="./images/norway.jpg" class="item__image" alt="Фотография из Норвегии"></div>
-        <div class="item__fragment item__fragment_textfield">
-          <h2 class="item__title">Норвегия</h2>
-          <button class="item__checkbox" type="button"></button>
-        </div>
-      </article>
-      <article class="item">
-        <div class="item__fragment item__fragment_img"><img src="./images/hanoi.jpg" class="item__image" alt="Фотография Ханоя"></div>
-        <div class="item__fragment item__fragment_textfield">
-          <h2 class="item__title">Ханой</h2>
-          <button class="item__checkbox" type="button"></button>
-        </div>
-      </article>
-      <article class="item">
-        <div class="item__fragment item__fragment_img"><img src="./images/brooklyn.jpg" class="item__image" alt="Фотография Бруклина (Нью-Йорк)"></div>
-        <div class="item__fragment item__fragment_textfield">
-          <h2 class="item__title">Бруклин</h2>
-          <button class="item__checkbox" type="button"></button>
-        </div>
-      </article>
-      <article class="item">
-        <div class="item__fragment item__fragment_img"><img src="./images/edinburgh.jpg" class="item__image" alt="Фотография Эдинбурга"></div>
-        <div class="item__fragment item__fragment_textfield">
-          <h2 class="item__title">Эдинбург</h2>
-          <button class="item__checkbox" type="button"></button>
-        </div>
-      </article>
-      <article class="item">
-        <div class="item__fragment item__fragment_img"><img src="./images/prague.jpg" class="item__image" alt="Фотография Праги"></div>
-        <div class="item__fragment item__fragment_textfield">
-          <h2 class="item__title">Прага</h2>
-          <button class="item__checkbox" type="button"></button>
-        </div>
-      </article>
-    </section>
+    <section class="elements"></section>
   </main>
   <footer class="footer">
     <p class="footer__text">&copy; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup__edit">
     <div class="popup__container">
-    <form class="popup__form">
+    <form class="popup__form popup__form_profile">
       <h2 class="popup__header">Редактировать профиль</h2>
       <input class="popup__input popup__input_name" type="text">
       <input class="popup__input popup__input_descr" type="text">
@@ -84,6 +41,34 @@
     <button class="popup__close-button" type="button"></button>
     </div>
   </div>
+  <div class="popup popup__add">
+    <div class="popup__container">
+      <form class="popup__form popup__form_cards">
+        <h2 class="popup__header">Новое место</h2>
+        <input class="popup__input popup__input_placename" type="text" placeholder="Название">
+        <input class="popup__input popup__input_link" type="text" placeholder="Ссылка на картинку">
+        <button class="popup__savebutton">Создать</button>
+      </form>
+      <button class="popup__close-button popup__close-button_cards" type="button"></button>
+    </div>
+  </div>
+  <div class="popup popup__image">
+    <div class="popup__image-container">
+      <button class="popup__close-button popup__close-button_image" type="button"></button>
+      <img src="" class="popup__image-pic" alt="Фотография">
+      <h3 class="popup__image-name"></h3>
+    </div>
+  </div>
+    <template class="item__template">
+      <div class="item">
+      <img src="" class="item__image" alt="Фотография">
+        <button class="item__delete-button"></button>
+      <div class="item__fragment item__fragment_textfield">
+        <h2 class="item__title"></h2>
+        <button class="item__checkbox" type="button"></button>
+      </div>
+      </div>
+    </template>
   <script src="scripts/index.js"></script>
 </body>
 </html>

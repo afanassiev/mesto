@@ -11,6 +11,6 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.elements__checkbox:hover {
+.item__checkbox:hover {
   opacity: 0.6;
 }

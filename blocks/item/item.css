@@ -2,6 +2,9 @@
 @import url(__title/item__title.css);
 @import url(__checkbox/item__checkbox.css);
 @import url(__fragment/item__fragment.css);
+@import url(__template/item__template.css);
+@import url(__delete-button/item__delete-button.css);
+@import url(__checkbox/_active/item__checkbox_active.css);
 
 .item {
   list-style: none;
@@ -12,4 +15,5 @@
   max-width: 282px;
   object-fit: cover;
   box-sizing: border-box;
+  display: grid;
 }
