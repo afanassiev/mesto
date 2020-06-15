@@ -84,6 +84,11 @@ function closeButtons() {
   }));
 }
 
+// function popupToggle() {
+//   let popupArray = document.querySelectorAll('.popup');
+//   popupArray.forEach(item => item.classList.toggle('.popup_opened');
+// }
+
 function addCard (name, link) {
   let itemElement = itemTemplate.cloneNode(true);
   let itemImage = itemElement.querySelector('.item__image');
@@ -108,6 +113,18 @@ initialCards.forEach(function (itemElement) {
   addCard(itemElement.name, itemElement.link);
 });
 
+const popupCloseOverlay = Array.from(document.querySelectorAll('.popup'));
+popupCloseOverlay.forEach(element => {
+  element.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup')) {
+      evt.target.classList.remove('popup_opened');
+    }
+  });
+  document.addEventListener('keydown', (evt) => {
+    element.classList.remove('popup_opened');
+  });
+});
+
 editButton.addEventListener('click', openForm);
 addButton.addEventListener('click', addFormToggle);
 
@@ -116,3 +133,13 @@ closeButtonCards.addEventListener('click', closeButtons);
 
 formElement.addEventListener('submit', formSubmitHandler);
 formElementSecond.addEventListener('submit', cardSubmit);
+
+const formValidationOptions = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__savebutton',
+  inactiveButtonClass: 'popup__savebutton_disabled',
+  inputErrorClass: '.popup__input_type_error',
+  errorClass: '.popup__error_visible'
+}
+enableValidation(formValidationOptions);

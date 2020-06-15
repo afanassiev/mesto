@@ -1,3 +1,5 @@
+@import url(_disabled/popup__savebutton_disabled.css);
+
 .popup__savebutton {
   background-color: #000;
   color: #fff;
