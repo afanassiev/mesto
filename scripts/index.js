@@ -51,7 +51,7 @@ function getInput() {
 }
 
 function popupToggle() {
-  (popup.classList.toggle('popup_opened'));
+  popup.classList.toggle('popup_opened');
 }
 
 function openForm() {
@@ -121,7 +121,9 @@ popupCloseOverlay.forEach(element => {
     }
   });
   document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
     element.classList.remove('popup_opened');
+    }
   });
 });
 
