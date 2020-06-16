@@ -45,7 +45,7 @@ const initialCards = [
   }
 ];
 
-function getInput() {
+function getPopupValues() {
   popupName.value = nameProfile.textContent;
   popupDescr.value = descrProfile.textContent;
 }
@@ -56,7 +56,7 @@ function popupToggle() {
 
 function openForm() {
   popupToggle();
-  getInput();
+  getPopupValues();
 }
 
 function formSubmitHandler (evt) {
@@ -68,6 +68,8 @@ function formSubmitHandler (evt) {
 
 function addFormToggle() {
   formAdder.classList.toggle('popup_opened');
+  newItemName.value = '';
+  newItemLink.value = '';
 }
 
 function cardSubmit (evt) {
@@ -77,21 +79,16 @@ function cardSubmit (evt) {
 }
 
 function closeButtons() {
-  let closeButtonArray = document.querySelectorAll('.popup__close-button');
+  const closeButtonArray = document.querySelectorAll('.popup__close-button');
   closeButtonArray.forEach(item => item.addEventListener('click', function (event) {
-    let eventTarget = event.target.parentElement.parentElement;
+    const eventTarget = event.target.parentElement.parentElement;
     eventTarget.classList.remove('popup_opened');
   }));
 }
 
-// function popupToggle() {
-//   let popupArray = document.querySelectorAll('.popup');
-//   popupArray.forEach(item => item.classList.toggle('.popup_opened');
-// }
-
 function addCard (name, link) {
-  let itemElement = itemTemplate.cloneNode(true);
-  let itemImage = itemElement.querySelector('.item__image');
+  const itemElement = itemTemplate.cloneNode(true);
+  const itemImage = itemElement.querySelector('.item__image');
   itemImage.src = link;
   itemImage.addEventListener('click', function (evt) {
     imagePopup.classList.toggle('popup_opened');
@@ -143,5 +140,5 @@ const formValidationOptions = {
   inactiveButtonClass: 'popup__savebutton_disabled',
   inputErrorClass: '.popup__input_type_error',
   errorClass: '.popup__error_visible'
-}
+};
 enableValidation(formValidationOptions);
