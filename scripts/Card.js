@@ -1,4 +1,4 @@
-import {closeButtons} from "./index.js";
+import {closeButtons, popupCloseEsc} from "./utils.js";
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -27,7 +27,8 @@ export default class Card {
     document.querySelector('.popup__image').classList.toggle('popup_opened');
     document.querySelector('.popup__image-pic').src = this._link;
     document.querySelector('.popup__image-name').textContent = this._name;
-    closeButtons();
+    document.querySelector('.popup__close-button_image').addEventListener('click', closeButtons);
+    document.addEventListener('keydown', popupCloseEsc);
   }
 
   _toggleLikeButton() {

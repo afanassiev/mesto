@@ -36,9 +36,9 @@ export default class FormValidator {
     }
   }
 
-  _toggleButtonState(formElem) {
-    const buttonElement = formElem.querySelector(this._submitButtonSelector);
-    if (!formElem.checkValidity())
+  _toggleButtonState() {
+    const buttonElement = this._formElem.querySelector(this._submitButtonSelector);
+    if (!this._formElem.checkValidity())
       buttonElement.classList.add(this._inactiveButtonClass);
      else
        buttonElement.classList.remove(this._inactiveButtonClass);
