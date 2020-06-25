@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import FormValidator from "./FormValidator.js";
+
 const container = document.querySelector('.root');
 const popup = container.querySelector('.popup');
 const editButton = container.querySelector('.profile__editbutton');
@@ -7,17 +10,14 @@ const nameProfile = container.querySelector('.profile__name');
 const descrProfile = container.querySelector('.profile__descr');
 const closeButton = container.querySelector('.popup__close-button');
 const closeButtonCards = container.querySelector('.popup__close-button_cards');
-const imagePopup = container.querySelector('.popup__image');
-const imagePic = container.querySelector('.popup__image-pic');
-const imageName = container.querySelector('.popup__image-name');
 const itemContainer = document.querySelector('.elements');
-const itemTemplate = document.querySelector('.item__template').content;
 const addButton = document.querySelector('.profile__addbutton');
 const formAdder = container.querySelector('.popup__add');
 const formElement = container.querySelector('.popup__form_profile');
 const formElementSecond = container.querySelector('.popup__form_cards');
 const newItemName = document.querySelector('.popup__input_placename');
 const newItemLink = document.querySelector('.popup__input_link');
+const elements = document.querySelector('.elements');
 const initialCards = [
   {
     name: 'Байкал',
@@ -74,11 +74,16 @@ function addFormToggle() {
 
 function cardSubmit (evt) {
   evt.preventDefault();
-  addCard(newItemName.value, newItemLink.value);
+  const item = {
+    name: newItemName.value,
+    link: newItemLink.value
+  }
+  const card = new Card (item, '#item-template').generateCard();
+  elements.prepend(card);
   addFormToggle();
 }
 
-function closeButtons() {
+export function closeButtons() {
   const closeButtonArray = document.querySelectorAll('.popup__close-button');
   closeButtonArray.forEach(item => item.addEventListener('click', function (event) {
     const eventTarget = event.target.parentElement.parentElement;
@@ -86,28 +91,10 @@ function closeButtons() {
   }));
 }
 
-function addCard (name, link) {
-  const itemElement = itemTemplate.cloneNode(true);
-  const itemImage = itemElement.querySelector('.item__image');
-  itemImage.src = link;
-  itemImage.addEventListener('click', function (evt) {
-    imagePopup.classList.toggle('popup_opened');
-    imagePic.src = link;
-    imageName.textContent = name;
-    closeButtons();
-  });
-  itemElement.querySelector('.item__title').textContent = name;
-  itemElement.querySelector('.item__checkbox').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('item__checkbox_active');
-  });
-  itemElement.querySelector('.item__delete-button').addEventListener('click', function (evt) {
-    evt.target.parentElement.remove();
-  });
-  itemContainer.prepend(itemElement);
-}
-
-initialCards.forEach(function (itemElement) {
-  addCard(itemElement.name, itemElement.link);
+initialCards.forEach((itemElement) => {
+  const card = new Card(itemElement, '.item__template');
+  const cardElement = card.generateCard();
+  itemContainer.prepend(cardElement);
 });
 
 const popupCloseOverlay = Array.from(document.querySelectorAll('.popup'));
@@ -138,7 +125,11 @@ const formValidationOptions = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__savebutton',
   inactiveButtonClass: 'popup__savebutton_disabled',
-  inputErrorClass: '.popup__input_type_error',
-  errorClass: '.popup__error_visible'
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
 };
-enableValidation(formValidationOptions);
+
+const validateFormCard = new FormValidator(formValidationOptions, formElementSecond);
+const validateFormProfile = new FormValidator(formValidationOptions, formElement);
+validateFormCard.enableValidation();
+validateFormProfile.enableValidation();
