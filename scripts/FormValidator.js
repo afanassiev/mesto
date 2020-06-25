@@ -51,13 +51,7 @@ export default class FormValidator {
         this._inputValidation(inputElem);
         this._toggleButtonState(this._formElem)
       })
-    })
-    this._formElem.addEventListener('input', () => {
-      inputList.forEach(inputElem => {
-        // this._hideInputError(inputElem)
-        this._toggleButtonState(this._formElem)
-      })
-    })
+    });
   }
 
 }
