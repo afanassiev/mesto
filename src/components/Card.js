@@ -39,7 +39,6 @@ export default class Card {
       this._deletePopupButton();
     });
     this._element.querySelector('.item__image').addEventListener('click', () => {
-      // this._toggleImagePopup();
       this._handleCardClick(this._name, this._link);
     });
   }

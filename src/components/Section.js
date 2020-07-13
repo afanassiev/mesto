@@ -11,13 +11,6 @@ export default class Section {
     this._renderedItems.forEach(item => {
       this._renderer(item)
     });
-    // initialCards.forEach((itemElement) => {
-
-
-      // const card = new Card(itemElement, '.item__template');
-      // const cardElement = card.generateCard();
-      // this._addItem(cardElement);
-    // });
   }
 
   addItem(item) {
