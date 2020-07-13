@@ -1,10 +1,9 @@
-import {closeButtons, popupCloseEsc} from "./utils.js";
-
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, {handleCardClick}) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -21,14 +20,6 @@ export default class Card {
     this._element.querySelector('.item__image').src = this._link;
     this._setEventListeners();
     return this._element;
-  }
-
-  _toggleImagePopup() {
-    document.querySelector('.popup__image').classList.toggle('popup_opened');
-    document.querySelector('.popup__image-pic').src = this._link;
-    document.querySelector('.popup__image-name').textContent = this._name;
-    document.querySelector('.popup__close-button_image').addEventListener('click', closeButtons);
-    document.addEventListener('keydown', popupCloseEsc);
   }
 
   _toggleLikeButton() {
@@ -48,7 +39,8 @@ export default class Card {
       this._deletePopupButton();
     });
     this._element.querySelector('.item__image').addEventListener('click', () => {
-      this._toggleImagePopup();
+      // this._toggleImagePopup();
+      this._handleCardClick(this._name, this._link);
     });
   }
 }
