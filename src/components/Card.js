@@ -28,6 +28,7 @@ export default class Card {
 
   _deletePopupButton() {
     this._element.remove();
+    this._element.removeEventListener('click', this._setEventListeners());
     this._element = null;
   }
 

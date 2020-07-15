@@ -1,13 +1,12 @@
-import './pages/index.css';
-import Section from "./components/Section.js";
-import Card from './components/Card.js';
-import PopupWithImage from "./components/PopupWithImage.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import FormValidator from "./components/FormValidator.js";
-import UserInfo from "./components/UserInfo.js";
+import './index.css';
+import Section from "../components/Section.js";
+import Card from '../components/Card.js';
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import FormValidator from "../components/FormValidator.js";
+import UserInfo from "../components/UserInfo.js";
 import {
   initialCards,
-  container,
   editButton,
   popupName,
   popupDescr,
@@ -21,7 +20,7 @@ import {
   formValidationOptions,
   popupImg,
   formSelectorAdder
-} from './utils/constants.js';
+} from '../utils/constants.js';
 
 const popupImage = new PopupWithImage(popupImg);
 popupImage.setEventListeners();
@@ -77,13 +76,17 @@ function openEditForm () {
   editForm.open();
 }
 
-editButton.addEventListener('click', openEditForm);
-addButton.addEventListener('click', () => {
-  formSelectorAdder.reset();
-  addForm.open();
-});
-
 const validateFormCard = new FormValidator(formValidationOptions, formElementSecond);
 const validateFormProfile = new FormValidator(formValidationOptions, formElement);
 validateFormCard.enableValidation();
 validateFormProfile.enableValidation();
+
+editButton.addEventListener('click', () => {
+  validateFormProfile.clearError();
+  openEditForm();
+});
+addButton.addEventListener('click', () => {
+  formSelectorAdder.reset();
+  validateFormCard.clearError();
+  addForm.open();
+});

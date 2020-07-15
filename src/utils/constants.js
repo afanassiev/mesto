@@ -44,5 +44,6 @@ export const formValidationOptions = {
   submitButtonSelector: '.popup__savebutton',
   inactiveButtonClass: 'popup__savebutton_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+  errorClass: 'popup__error_visible',
+  errorSpan: '.popup__error'
 };
