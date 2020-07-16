@@ -4,6 +4,10 @@ export default class Card {
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._element = this._getTemplate();
+    this._checkboxElement = this._element.querySelector('.item__checkbox');
+    this._deleteButtonElement = this._element.querySelector('.item__delete-button');
+    this._imageElement = this._element.querySelector('.item__image');
   }
 
   _getTemplate() {
@@ -15,7 +19,6 @@ export default class Card {
   }
 
   generateCard() {
-    this._element = this._getTemplate();
     this._element.querySelector('.item__title').textContent = this._name;
     this._element.querySelector('.item__image').src = this._link;
     this._setEventListeners();
@@ -23,24 +26,30 @@ export default class Card {
   }
 
   _toggleLikeButton() {
-    this._element.querySelector('.item__checkbox').classList.toggle('item__checkbox_active');
+    this._checkboxElement.classList.toggle('item__checkbox_active');
   }
 
   _deletePopupButton() {
     this._element.remove();
-    this._element.removeEventListener('click', this._setEventListeners());
+    this._removeEventListeners();
     this._element = null;
   }
 
   _setEventListeners() {
-    this._element.querySelector('.item__checkbox').addEventListener('click', () => {
+    this._checkboxElement.addEventListener('click', () => {
       this._toggleLikeButton();
     });
-    this._element.querySelector('.item__delete-button').addEventListener('click', () => {
+    this._deleteButtonElement.addEventListener('click', () => {
       this._deletePopupButton();
     });
-    this._element.querySelector('.item__image').addEventListener('click', () => {
+    this._imageElement.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);
     });
+  }
+
+  _removeEventListeners() {
+    this._checkboxElement.removeEventListener('click', this._toggleLikeButton);
+    this._deleteButtonElement.removeEventListener('click', this._deletePopupButton);
+    this._imageElement.removeEventListener('click', this._handleCardClick);
   }
 }

@@ -1,6 +1,9 @@
 .item__image {
-  /*border-radius: 10px 10px 0 0;*/
-  /*  max-width: 282px;*/
     width: 282px;
     height: 282px;
+    cursor: pointer;
+}
+
+.item__image:hover {
+    opacity: 0.8;
 }
