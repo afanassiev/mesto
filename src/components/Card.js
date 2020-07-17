@@ -25,31 +25,29 @@ export default class Card {
     return this._element;
   }
 
-  _toggleLikeButton() {
+  _toggleLikeButton = (evt) => {
     this._checkboxElement.classList.toggle('item__checkbox_active');
   }
 
-  _deletePopupButton() {
+  _deletePopupButton = (evt) => {
     this._element.remove();
     this._removeEventListeners();
     this._element = null;
   }
 
+  _handleCardClickListener = (evt) => {
+    this._handleCardClick(this._name, this._link);
+  }
+
   _setEventListeners() {
-    this._checkboxElement.addEventListener('click', () => {
-      this._toggleLikeButton();
-    });
-    this._deleteButtonElement.addEventListener('click', () => {
-      this._deletePopupButton();
-    });
-    this._imageElement.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link);
-    });
+    this._checkboxElement.addEventListener('click', this._toggleLikeButton);
+    this._deleteButtonElement.addEventListener('click', this._deletePopupButton);
+    this._imageElement.addEventListener('click', this._handleCardClickListener);
   }
 
   _removeEventListeners() {
     this._checkboxElement.removeEventListener('click', this._toggleLikeButton);
     this._deleteButtonElement.removeEventListener('click', this._deletePopupButton);
-    this._imageElement.removeEventListener('click', this._handleCardClick);
+    this._imageElement.removeEventListener('click', this._handleCardClickListener);
   }
 }
