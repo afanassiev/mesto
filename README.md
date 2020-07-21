@@ -8,6 +8,7 @@
 * Адаптивная верстка;
 * Файловая структура сайта написана с использованием методологии [БЭМ (схема nested)](_https://ru.bem.info/methodology/filestructure/_).
 * JavaScript.
+* Webpack.
 
 Проект доступен на [GitHubPages по ссылке](https://afanassiev.github.io/mesto/).
 
