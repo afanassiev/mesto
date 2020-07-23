@@ -5,6 +5,7 @@
 @import url(__name/profile__name.css);
 @import url(__descr/profile__descr.css);
 @import url(__editbutton/profile__editbutton.css);
+@import url(__avatar-button/profile__avatar-button.css);
 
 .profile {
   margin: 36.25px auto 0 auto;

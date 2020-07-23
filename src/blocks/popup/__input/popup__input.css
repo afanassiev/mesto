@@ -2,6 +2,7 @@
 @import url(_descr/popup__input_descr.css);
 @import url(_placename/popup__input_placename.css);
 @import url(_link/popup__input_link.css);
+@import url(_avatar/popup__input_avatar.css);
 @import url(_type/_error/popup__input_type_error.css);
 
 .popup__input {

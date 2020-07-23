@@ -13,7 +13,7 @@
 @import url(_opened/popup_opened.css);
 @import url(__error/popup__error.css);
 @import url(__label/popup__label.css);
-
+@import url(__delete-confirmation/popup__delete-confirmation.css);
 
 .popup {
   width: 100%;

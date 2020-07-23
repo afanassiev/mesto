@@ -1,10 +1,12 @@
 export default class UserInfo {
-  constructor({nameProfile, descrProfile}) {
+  constructor({nameProfile, descrProfile, linkAvatar}) {
     this._nameProfile = nameProfile;
     this._descrProfile = descrProfile;
+    this._linkAvatar = linkAvatar;
     this._userData = {
       name: this._nameProfile.textContent,
-      descr: this._descrProfile.textContent
+      about: this._descrProfile.textContent,
+      avatar: this._linkAvatar.src
     }
   }
 
@@ -13,8 +15,13 @@ export default class UserInfo {
   }
 
   setUserInfo (data) {
-    this._nameProfile.textContent = data.profileNameInput;
-    this._descrProfile.textContent = data.profileDescrInput;
-  }
+      this._nameProfile.textContent = data.name;
+      this._descrProfile.textContent = data.about;
+      this._linkAvatar.src = data.avatar;
+    }
+
+  // setAvatar (data) {
+  //   this._linkAvatar.src = data.avatar;
+  //   }
 
 }

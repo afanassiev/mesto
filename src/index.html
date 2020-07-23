@@ -15,7 +15,9 @@
   <main class="contain">
     <section class="profile">
       <div class="profile__data">
-        <img src="images/avatar.jpg" class="profile__avatar" alt="аватар пользователя">
+        <button class="profile__avatar-button">
+          <img src="images/loadingAvatar.jpg" class="profile__avatar" alt="аватар пользователя">
+        </button>
         <ul class="profile__info">
           <li class="profile__name">Жак-Ив Кусто</li>
           <li class="profile__descr">Исследователь океана</li>
@@ -70,13 +72,38 @@
       <h3 class="popup__image-name"></h3>
     </div>
   </div>
+  <div class="popup popup__delete-confirmation">
+    <div class="popup__container">
+      <form class="popup__form">
+        <h2 class="popup__header">Вы уверены?</h2>
+        <button class="popup__savebutton popup__confirm-button" type="submit">Да</button>
+      </form>
+      <button class="popup__close-button popup__close-button_submit" type="button"></button>
+    </div>
+  </div>
+  <div class="popup popup__avatar">
+    <div class="popup__container">
+      <form name="profileAvatar" class="popup__form popup__form_avatar" novalidate>
+        <h2 class="popup__header">Обновить аватар</h2>
+        <label class="popup__label">
+          <input class="popup__input popup__input_avatar" type="url" id="url-avatar" name="urlAvatar" placeholder="Ссылка на аватар" required>
+          <span class="popup__error" id="url-avatar-error"></span>
+        </label>
+        <button class="popup__savebutton">Сохранить</button>
+      </form>
+      <button class="popup__close-button popup__close-button_cards" type="button"></button>
+    </div>
+  </div>
     <template class="item__template" id="item-template">
       <div class="item">
       <img class="item__image" alt="Фотография">
         <button class="item__delete-button"></button>
       <div class="item__fragment item__fragment_textfield">
         <h2 class="item__title"></h2>
-        <button class="item__checkbox" type="button"></button>
+        <div class="item__like">
+          <button class="item__checkbox" type="button"></button>
+          <span class="item__like-counter">0</span>
+        </div>
       </div>
       </div>
     </template>
