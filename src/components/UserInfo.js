@@ -19,9 +19,4 @@ export default class UserInfo {
       this._descrProfile.textContent = data.about;
       this._linkAvatar.src = data.avatar;
     }
-
-  // setAvatar (data) {
-  //   this._linkAvatar.src = data.avatar;
-  //   }
-
 }
