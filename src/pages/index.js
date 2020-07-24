@@ -8,27 +8,29 @@ import PopupWithDelete from "../components/PopupWithDelete.js";
 import FormValidator from "../components/FormValidator.js";
 import UserInfo from "../components/UserInfo.js";
 import {
-  addButton,
   apiConfig,
-  descrProfile,
-  editButton,
-  formAdder,
-  formEditor,
-  formConfirmation,
-  formAvatar,
-  formElement,
-  formElementSecond,
-  formSelectorAdder,
   formValidationOptions,
-  nameProfile,
-  popupDescr,
-  popupImg,
-  popupName,
-  linkAvatar,
-  formAvatarButton,
-  formElementAvatar,
-  formAvatarSelector,
+  container
 } from '../utils/constants.js';
+
+const editButton = container.querySelector('.profile__editbutton');
+const popupName = container.querySelector('.popup__input_name');
+const popupDescr = container.querySelector('.popup__input_descr');
+const nameProfile = document.querySelector('.profile__name');
+const descrProfile = document.querySelector('.profile__descr');
+const addButton = document.querySelector('.profile__addbutton');
+const formAdder = document.querySelector('.popup__add');
+const formEditor = document.querySelector('.popup__edit');
+const formConfirmation = document.querySelector('.popup__delete-confirmation');
+const formAvatar = document.querySelector('.popup__avatar');
+const linkAvatar = document.querySelector('.profile__avatar');
+const formAvatarButton = document.querySelector('.profile__avatar-button');
+const formElement = container.querySelector('.popup__form_profile');
+const formElementSecond = container.querySelector('.popup__form_cards');
+const formElementAvatar = container.querySelector('.popup__form_avatar');
+const popupImg = document.querySelector('.popup__image');
+const formSelectorAdder = formAdder.querySelector('form');
+const formAvatarSelector = formAvatar.querySelector('form');
 
 const api = new Api(apiConfig);
 
@@ -41,6 +43,8 @@ const popupImage = new PopupWithImage(popupImg);
 popupImage.setEventListeners();
 
 const authorizedUserId = api.authorizedUserId;
+
+let defaultCardsList = {};
 
 function renderCard(cardItem) {
   const newCard = new Card(authorizedUserId, cardItem, '#item-template', {
@@ -77,17 +81,20 @@ function renderCard(cardItem) {
   defaultCardsList.addItem(cardElement);
 }
 
-const defaultCardsList = new Section({
+const initialCards = () => {
+  api.getInitialCards().then(res => {
+    defaultCardsList = new Section({
+    items: res,
     renderer: ((cardItem) => {
       renderCard(cardItem);
     })},
   '.elements'
 );
+    defaultCardsList.renderItems();
+  })
+}
 
-api.getInitialCards()
-  .then((res) => {
-    defaultCardsList.renderItems(res);
-  });
+initialCards();
 
 const addForm = new PopupWithForm(formAdder, {
   handleFormSubmit: () => {
@@ -96,8 +103,11 @@ const addForm = new PopupWithForm(formAdder, {
     api.addNewCard(getInputValue)
       .then((cardItem) => {
         renderCard(cardItem);
-        addForm.hideSaveMessage();
       })
+      .finally(() => {
+        addForm.close();
+        addForm.hideSaveMessage();
+      });
   }
 })
 
@@ -115,8 +125,11 @@ const editForm = new PopupWithForm(formEditor, {
     api.setUserInfo(getInputValue)
       .then((data) => {
         userData.setUserInfo(data);
-        editForm.hideSaveMessage();
       })
+      .finally(() => {
+        editForm.close();
+        editForm.hideSaveMessage();
+      });
   }
 });
 
@@ -129,8 +142,11 @@ const changeAvatarForm = new PopupWithForm(formAvatar, {
     api.changeAvatar(getInputValue)
       .then((data) => {
         userData.setUserInfo(data);
-        changeAvatarForm.hideSaveMessage();
       })
+      .finally(() => {
+        changeAvatarForm.close();
+        changeAvatarForm.hideSaveMessage();
+      });
   }
 })
 

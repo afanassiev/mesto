@@ -18,9 +18,4 @@ export default class PopupWithDelete extends Popup {
   setSubmit(callback) {
     this._handleFormSubmit = callback;
   }
-
-  open() {
-    super.open();
-  }
-
 }

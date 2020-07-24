@@ -60,6 +60,7 @@ export default class Card {
 
   deletePopupButton = () => {
     this._element.remove();
+    this._element = null;
   }
 
   _handleCardClickListener = () => {
@@ -76,16 +77,9 @@ export default class Card {
 
   _setEventListeners() {
     this._checkboxElement.addEventListener('click', this._renderLikeButton);
-    // this._deleteButtonElement.addEventListener('click', this._deletePopupButton);
     this._deleteButtonElement.addEventListener('click', () => {
       this._deleteCard(this._element)
     });
     this._imageElement.addEventListener('click', this._handleCardClickListener);
   }
-
-  // _removeEventListeners() {
-  //   this._checkboxElement.removeEventListener('click', this._renderLikeButton);
-  //   this._deleteButtonElement.removeEventListener('click', this._deletePopupButton);
-  //   this._imageElement.removeEventListener('click', this._handleCardClickListener);
-  // }
 }
